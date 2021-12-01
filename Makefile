@@ -36,6 +36,11 @@ endef
 define Package/luci-app-adguardhome/conffiles
 /usr/share/AdGuardHome/links.txt
 /etc/config/AdGuardHome
+/etc/AdGuardHome.yaml
+/usr/bin/AdGuardHome/AdGuardHome
+/usr/bin/AdGuardHome/querylog.json
+/usr/bin/AdGuardHome/sessions.db
+/usr/bin/AdGuardHome/stats.db
 endef
 
 define Package/luci-app-adguardhome/install
