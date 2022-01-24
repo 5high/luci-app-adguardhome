@@ -28,6 +28,7 @@ define Package/luci-app-adguardhome/description
 endef
 
 define Build/Prepare
+	mkdir -p $(PKG_BUILD_DIR)/etc/AdGuardHome/logs/
 endef
 
 define Build/Compile
@@ -36,11 +37,10 @@ endef
 define Package/luci-app-adguardhome/conffiles
 /usr/share/AdGuardHome/links.txt
 /etc/config/AdGuardHome
-/etc/AdGuardHome.yaml
-/usr/bin/AdGuardHome/AdGuardHome
-/usr/bin/AdGuardHome/querylog.json
-/usr/bin/AdGuardHome/sessions.db
-/usr/bin/AdGuardHome/stats.db
+/etc/AdGuardHome/AdGuardHome.yaml
+/etc/AdGuardHome/AdGuardHome
+/etc/AdGuardHome/data/sessions.db
+/etc/AdGuardHome/data/stats.db
 endef
 
 define Package/luci-app-adguardhome/install

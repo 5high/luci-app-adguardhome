@@ -30,9 +30,9 @@ function get_template_config()
 	while (1) do
     	a=f:read("*l")
 		if (a=="#bootstrap_dns") then
-			a=d
+			a="  - 114.114.114.114"
 		elseif (a=="#upstream_dns") then
-			a=d
+			a="  - 127.0.0.1:7874"
 		elseif (a==nil) then
 			break
 		end
