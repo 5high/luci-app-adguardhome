@@ -54,6 +54,8 @@ endef
 
 define Package/luci-app-adguardhome/postinst
 #!/bin/sh
+    mkdir -p /etc/AdGuardHome/logs/
+	touch /etc/AdGuardHome/logs/AdGuardHome.log
 	chmod -R 755 /etc/AdGuardHome/*
 	chmod 755 /etc/init.d/AdGuardHome
 	/etc/init.d/AdGuardHome enable >/dev/null 2>&1
