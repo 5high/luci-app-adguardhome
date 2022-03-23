@@ -70,6 +70,10 @@ endef
 
 define Package/luci-app-adguardhome/prerm
 #!/bin/sh
+    mkdir -p /etc/AdGuardHome/logs/
+	mkdir -p /etc/AdGuardHome/backup/
+	touch /etc/AdGuardHome/logs/AdGuardHome.log
+	chmod -R 755 /etc/AdGuardHome/*
 if [ -z "$${IPKG_INSTROOT}" ]; then
      /etc/init.d/AdGuardHome disable
      /etc/init.d/AdGuardHome stop
