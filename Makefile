@@ -28,19 +28,18 @@ define Package/luci-app-adguardhome/description
 endef
 
 define Build/Prepare
-	mkdir -p $(PKG_BUILD_DIR)/etc/AdGuardHome/logs/
 endef
 
 define Build/Compile
 endef
 
 define Package/luci-app-adguardhome/conffiles
-/usr/share/AdGuardHome/links.txt
 /etc/config/AdGuardHome
 /etc/AdGuardHome/AdGuardHome.yaml
 /etc/AdGuardHome/AdGuardHome
 /etc/AdGuardHome/data/sessions.db
 /etc/AdGuardHome/data/stats.db
+/etc/AdGuardHome/data/querylog.json
 endef
 
 define Package/luci-app-adguardhome/install
@@ -54,8 +53,6 @@ endef
 
 define Package/luci-app-adguardhome/postinst
 #!/bin/sh
-    mkdir -p /etc/AdGuardHome/logs/
-	touch /etc/AdGuardHome/logs/AdGuardHome.log
 	chmod -R 755 /etc/AdGuardHome/*
 	chmod 755 /etc/init.d/AdGuardHome
 	/etc/init.d/AdGuardHome enable >/dev/null 2>&1
@@ -70,9 +67,6 @@ endef
 
 define Package/luci-app-adguardhome/prerm
 #!/bin/sh
-    mkdir -p /etc/AdGuardHome/logs/
-	mkdir -p /etc/AdGuardHome/backup/
-	touch /etc/AdGuardHome/logs/AdGuardHome.log
 	chmod -R 755 /etc/AdGuardHome/*
 if [ -z "$${IPKG_INSTROOT}" ]; then
      /etc/init.d/AdGuardHome disable
