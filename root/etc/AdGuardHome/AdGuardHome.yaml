@@ -31,7 +31,8 @@ dns:
   ratelimit_whitelist: []
   refuse_any: false
   upstream_dns:
-  - 127.0.0.1:7874
+  - 114.114.114.114
+  - 1.2.4.8
   upstream_dns_file: ""
   bootstrap_dns:
   - 114.114.114.114
@@ -102,7 +103,23 @@ filters:
   name: halflife
   id: 5968446
 whitelist_filters: []
-user_rules: []
+user_rules:
+- '# 以 k xM-/ } u g滤YouTube广 q^j'
+- /googleads.$~script,domain=~googleads.github.io
+- /pagead/lvz?
+- '||google.com/pagead/'
+- '||static.doubleclick.net^$domain=youtube.com'
+- '||youtube.com/get_midroll_'
+- /^r[0-9]+-+sn-+[a-z0-9]+-+[a-z0-9]+\.googlevideo\.com$/
+- '# 以 j xM-/ } u g滤YouTube广 q^j'
+- '@@||taobao.com^'
+- '@@||tmall.com^'
+- '@@||alipay.com^'
+- '@@||alicdn.com^'
+- '@@||dmall.com^'
+- '@@||duodian.com^'
+- '@@||play.google.com^$important'
+- ""
 dhcp:
   enabled: false
   interface_name: ""
